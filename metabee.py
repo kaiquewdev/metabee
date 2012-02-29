@@ -1,15 +1,21 @@
 #!/usr/bin/python
 # coding: utf-8
+import re
 
 class Metabee(object):
     '''
         Metabee massive email send with attachment.
     '''
     def __init__(self, file_path):
+        '''
+            Set a file path of txt, when has the main informations.
+        '''
         self.file_path = file_path
 
     def parse(self):
-        import re
+        '''
+            Parse the main informations and return a dictionary.
+        '''
 
         file = open(self.file_path, 'rb')
         file_contents = file.read()
@@ -26,12 +32,15 @@ class Metabee(object):
 
             if len(file_patterns_list) > 0:
                 for line in file_patterns_list:
+                    # Get title information
                     if '#Title:' in line:
                         if not file_patterns['title']:
                             file_patterns['title'] = re.sub('#Title:', '', line)
+                    # Get body information
                     if '#Body:' in line:
                         if not file_patterns['body']:
                             file_patterns['body'] = re.sub('#Body:', '', line)
+                    # Get list information
                     if '#List:' in line:
                         if not file_patterns['list']:
                                 file_patterns['list'] = re.sub('#List:', '', line)
@@ -43,6 +52,16 @@ class Metabee(object):
         
         if file_patterns:
             return file_patterns
+    
+    def mountList(self):
+        '''
+            Mount the list when is a list.
+        '''
+        desassembly = self.parse()
+
+        if desassembly['list']:
+
+
 
 if __name__ == '__main__':
     text = Metabee('files/tosend.txt')

@@ -1,0 +1,5 @@
+Metabee massive email send
+    Features:
+        - Render the default title and body, setting up by user.
+        - Send a massive email, to a list of emails, pre-described in the txt file.
+        - Send to a massive list of emails with atachment.
