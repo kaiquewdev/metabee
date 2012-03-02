@@ -53,16 +53,6 @@ class Metabee(object):
         if file_patterns:
             return file_patterns
     
-    def mountList(self):
-        '''
-            Mount the list when is a list.
-        '''
-        desassembly = self.parse()
-
-        if desassembly['list']:
-
-
-
 if __name__ == '__main__':
     text = Metabee('files/tosend.txt')
-    print text.parse()
+    text.parse()
