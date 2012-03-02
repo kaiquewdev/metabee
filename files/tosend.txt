@@ -2,5 +2,5 @@
 #Body: Hello, my test;
 
 #List:
-('kaique.developer@gmail.com', ''),
-('kaique.developer@gmail.com', '');
+('kaique.developer@gmail.com', 'files/ALBERTO.pdf'),
+('kaique.developer@gmail.com', 'files/ALBERTO.pdf');
